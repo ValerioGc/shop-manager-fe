@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #fefefe;
+    --primary-light-color: #fefefe;
+    --secondary-color: #273ba6;
+    --secondary-color-light: #273aa6ad;
+    --shadow-color: grey;
+    --light-color: #ffffff;
+    --dark-color: #000000;
+
+    // *************** Spacing ***************
+    --btn_padding-x: 1rem;
+    --btn_padding-y: 1rem;
+
+    --btn_margin-x: 1rem;
+    --btn_margin-y: 1rem;
+
+    --border_sm: 0.2rem solid;
+    --border_md: 0.5rem solid;
+    --border_lg: 1rem solid;
+    --border_radius: 6px;
+    --border_round: 50%;
+
+    // *************** Font Sizes ***************
+    --standard_fs: 1rem;
+    --standard_fs_md: 1.1rem;
+    --standard_fs_lg: 1.2rem;
+    //  *************** Breakpoints ***************
+    --screen_size_xs: 350px;
+    --screen_size_sm: 420px;
+    --screen_size_smp: 580px;
+    --screen_size_md: 768px;
+    --screen_size_lg: 992px;
+    --screen_size_xl: 1200px;
+    --screen_size_xxl: 1600px;
+    // *************** Z-Index levels ***************
+    --z_bg: -1;
+    --z_1: 1;
+    --z_2: 2;
+    --z_3: 3;
+    --z_max: 8;
+}
+
+// ******************** Dark Theme ***********************
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #1f1f1f;
+        --primary-light-color: #494949;
+        --secondary-color: #1a1fab;
+        --secondary-color-light: #1e24c9;
+        --shadow-color: #a4a4a4;
+        --light-color: #000000;
+        --dark-color: #ffffff;
+    }
+}

@@ -1,0 +1,55 @@
+<script setup lang="ts">
+
+interface Props {
+  lang?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  lang: 'ita'
+});
+
+</script>
+
+<template>
+  <svg width="100%" height="100%" viewBox="0 0 118.26933 91.810642" version="1.1" id="svg3"
+    sodipodi:docname="dynamic-localized-placeholder.svg" xml:space="preserve"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+    xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cc="http://creativecommons.org/ns#">
+    <defs id="defs3">
+      <rect x="596.18323" y="267.74695" width="108.88376" height="88.356499" id="rect6" />
+    </defs>
+    <sodipodi:namedview id="namedview3" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
+      inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"
+      inkscape:zoom="4.4848485" inkscape:cx="424.42906" inkscape:cy="179.93919" inkscape:window-width="1440"
+      inkscape:window-height="830" inkscape:window-x="-6" inkscape:window-y="-6" inkscape:window-maximized="1"
+      inkscape:current-layer="svg3" />
+    <rect
+      style="fill:#ffffff00;fill-opacity:1;stroke:none;stroke-width:1.96737;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:50;stroke-opacity:0.633641"
+      id="rect1" width="118.41211" height="91.952034" x="-7.1785609e-09" y="-0.031519122" /><text id="trsvg3-6"
+      style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.184px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;white-space:pre;inline-size:80.8568;display:inline;fill:#808080;stroke-width:0.183662"
+      x="91.524704" y="73.086151" transform="matrix(1.3248128,0,-0.1098955,1.3248128,-55.016363,-32.642716)"
+      inkscape:transform-center-x="-0.19825515" inkscape:transform-center-y="0.47227704" xml:space="preserve">
+      <tspan x="91.524704" y="73.086151" id="tspan1">{{ props.lang === 'ita' ? 'IMMAGINE NON' : 'IMAGE NOT' }} <tspan
+          y="73.086151" id="tspan2"> </tspan>
+      </tspan>
+      <tspan x="91.524704" y="87.066151" id="tspan3">{{ props.lang === 'ita' ? 'DISPONIBILE' : 'AVAILABLE' }}</tspan>
+    </text>
+    <g id="g15" transform="translate(-12.70003,-13.758366)">
+      <g id="g13">
+        <path fill="#d0d0d0" d="M 13.591,66.639 H 193.71 V 206.433 H 13.591 Z" id="path1-6"
+          style="opacity:1;fill:#999999;stroke:#1a1a1a;stroke-width:0.469075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:50;stroke-dasharray:none;stroke-opacity:1"
+          transform="matrix(0.22562182,0,0,0.22562182,45.388133,10.243037)" />
+        <path fill="#d0d0d0" d="m 50.850599,23.577082 h 40.82221 v 31.682943 h -40.82221 z" id="path1"
+          style="stroke:#000000;stroke-width:0.264584;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.633641;paint-order:fill markers stroke" />
+        <path d="m 74.628785,38.733647 -7.762201,7.762201 -3.618991,-3.618991 -9.504838,9.504611 h 34.534077 z"
+          opacity="0.675" fill="#ffffff" id="path2"
+          style="stroke-width:0.264584;stroke-dasharray:none;paint-order:fill markers stroke" />
+        <path fill="none" d="m 53.688135,26.068991 h 34.58847 v 26.312703 h -34.58847 z" id="path3"
+          style="stroke-width:0.264584;stroke-dasharray:none;paint-order:fill markers stroke" />
+        <circle cx="60.964642" cy="33.076931" r="2.6682353" opacity="0.675" fill="#ffffff" id="circle2"
+          style="stroke-width:0.264584;stroke-dasharray:none;paint-order:fill markers stroke" />
+      </g>
+    </g>
+  </svg>
+</template>

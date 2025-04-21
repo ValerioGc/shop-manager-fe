@@ -1,0 +1,155 @@
+/// Mixin for flexbox layout with minimum properties.
+///
+/// @param {String} $justify - Allignment of elements on the main axis (es. `center`, `space-around`).
+/// @param {String} $align - Allignment of elements on the cross axis (es. `center`, `flex-start`).
+/// @param {String} $direction - Direction of the flex (es. `row`, `column`). Use `null` to not set.
+/// @param {String} $wrap - Setting the wrapping of elements (es. `wrap`, `nowrap`). Use `null` to not set.
+/// @param {String} $gap - Spacing between elements (es. `10px`, `1rem`). Use `null` to not set.
+@mixin flexmin(
+    $justify: center,
+    $align: center,
+    $direction: row,
+    $wrap: nowrap,
+    $gap: null
+) {
+    display: flex;
+
+    @if $justify != null {
+        justify-content: $justify;
+    }
+
+    @if $align != null {
+        align-items: $align;
+    }
+
+    @if $direction != null {
+        flex-direction: $direction;
+    }
+
+    @if $wrap != null {
+        flex-wrap: $wrap;
+    }
+
+    @if $gap != null {
+        gap: $gap;
+    }
+}
+
+///  Mixin for the management of breakpoints.
+///
+///  @param {String} $breakpoint - Breakpoint to manage (e.g. `xs` = 'px', `sm` ='420px', `md`='768px', `lg`='992px', `xl`, `xxl`).
+@mixin breakpoint($breakpoint) {
+    $breakpoints: (
+        'xs': 350px,
+        'sm': 420px,
+        'smp': 580px,
+        'md': 769px,
+        'lg': 992px,
+        'xl': 1200px,
+        'xxl': 1600px,
+    );
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+/// Mixin for the management of absolute positioning.
+///
+/// @param {String} $type - Type of alignment (e.g. `both`, `horizontal`, `vertical`).
+/// @param {Boolean} $transform - Flag for adding the transform.
+
+@mixin center(
+    $type: 'both',
+    $position: 'absolute',
+    $transform: 'true',
+    $x: 50%,
+    $y: 50%
+) {
+    @if $position == 'absolute' {
+        position: absolute;
+    } @else {
+        position: relative;
+    }
+
+    @if $type == 'both' or $type == 'hor' and $x != 0 {
+        left: $x;
+
+        @if $transform == 'true' {
+            transform: translateX(-50%);
+        }
+    }
+
+    @if $type == 'both' or $type == 'vert' and $y != 0 {
+        top: $y;
+
+        @if $transform == 'true' {
+            transform: translateY(-50%);
+        }
+    }
+}
+
+/// Mixin for the management of absolute positioning.
+///
+
+@mixin text_overflow($font_size, $font_weight, $lines, $line_height) {
+    @extend %ellipsis_text;
+
+    @if $font_size != null {
+        font-size: $font_size;
+    }
+
+    @if $font_weight != null {
+        font-weight: $font_weight;
+    }
+
+    @if $lines != null {
+        -webkit-line-clamp: $lines;
+    }
+
+    @if $line_height != null {
+        line-height: $line_height;
+    }
+}
+
+@mixin border_radius($mode, $x: 0, $x2: 0, $y: 0, $y2: 0) {
+    @if $mode == 'single' {
+        border-radius: $x $x2 $y $y2;
+    } @else if $mode == 'top' {
+        border-top-left-radius: $x;
+        border-top-right-radius: $x;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    } @else if $mode == 'bottom' {
+        border-bottom-left-radius: $x;
+        border-bottom-right-radius: $x;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    } @else if $mode == 'left' {
+        border-top-left-radius: $x;
+        border-bottom-left-radius: $x;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    } @else if $mode == 'right' {
+        border-top-right-radius: $x;
+        border-bottom-right-radius: $x;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+@mixin mq_visibility($mode, $display, $size) {
+    @if ($mode == 'mobile') {
+        display: $display;
+        @media (min-width: $size) {
+            display: none;
+        }
+    } @else {
+        display: none;
+        @media (min-width: $size) {
+            display: $display;
+        }
+    }
+}

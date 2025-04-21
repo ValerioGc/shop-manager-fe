@@ -1,0 +1,49 @@
+
+/******+*+*****************
+****** COMMON CLASSES *****
+**************************/
+.btn_e {
+    box-shadow: 0 0 6px -1 rgba(112, 112, 112, 0.483);
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--border_radius);
+    border: 0.1rem solid rgba(128, 128, 128, 0.551);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, all linear 0.25s;
+    font-size: calc(1rem - 0.1rem);
+
+    @media screen and (min-width: 420px) {
+        font-size: 1rem;
+    }
+
+    &:disabled {
+        opacity: 0.8;
+        cursor: wait;
+    }
+
+    img, span {
+        vertical-align: middle;
+    }
+
+}
+
+.btn_primary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: var(--border_sm) var(--secondary-color);
+
+    &:hover {
+        background-color: #1a1fab;
+        filter: brightness(0.95);
+        scale: 1.05;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(58, 91, 255, 0.549);
+    }
+}

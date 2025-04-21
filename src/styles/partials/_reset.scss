@@ -1,0 +1,25 @@
+//*************** RESET RULES *************//
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+
+a:not(.btn_e),
+router-link:not(.btn_e) {
+  color: initial;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0!important;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}

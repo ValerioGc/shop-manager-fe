@@ -1,0 +1,57 @@
+@use 'partials/_vars';
+@use 'partials/_reset';
+@use 'partials/_buttons';
+@use 'partials/_scrollbar';
+
+
+.shadow_stock {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+// ************ Fonts ************
+@font-face {
+  font-family: 'OpenSans';
+  src: url('@/assets/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
+// ************ General ************
+body {
+  overflow-x: hidden;
+  background: var(--primary-color-light);
+  font-family: OpenSans, serif;
+  width: 100vw;
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  padding-top: 1.5rem!important;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgb(33, 37, 41)!important;
+  color: rgb(33, 37, 41)!important;
+  margin: 1rem 0;
+  opacity: .25;
+}
+
+button {
+  font-family: OpenSans, serif;
+}
+
+.d_none {
+  display: none!important;
+}
+
+.ov_h {
+  overflow-y: hidden !important;
+}
