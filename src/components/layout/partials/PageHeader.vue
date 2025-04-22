@@ -175,13 +175,6 @@ onBeforeUnmount(() => {
   background-color: #f1fbff;
   box-shadow: -1px -1px 10px 0 rgba(124, 124, 124, 0.81);
 
-  // ************ Background Image ************
-  background-image: url('@/assets/decorations/clouds.svg');
-  background-position-y: bottom;
-  background-position-x: center;
-  background-size: 130%;
-  background-repeat: no-repeat;
-
   @media screen and (min-width: 420px) {
     background-size: 100%;
   }
