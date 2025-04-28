@@ -30,8 +30,8 @@ export const contactMeta: RouteMeta = {
         {
             property: 'og:description',
             content: {
-                ita: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Contattaci per informazioni sui nostri prodotti.',
-                eng: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Contact us for information on our products.',
+                ita: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                eng: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             },
         },
         {
