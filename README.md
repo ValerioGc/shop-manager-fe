@@ -1,51 +1,20 @@
 <h1 align="center" id="title">Shop manager Front end</h1>
 
-<p align="center">
- <img alt="Static Badge" src="https://img.shields.io/badge/Release-V--1.0.0-black?logoColor=%23000000&logoSize=16px&label=Release&labelColor=%230a66c2&color=%23c6cdcc">
- <img src="https://img.shields.io/badge/NodeJs-V--20.0.1-black?logo=npm&logoColor=%23000000&logoSize=16px&label=NodeJS&labelColor=%2397ca00&color=%23c6cdcc" alt="shields" />
-</p>
-
-<p align="center" id="description">
-The project is a front-end web application for managing an e-commerce shop. It is built using Vue.js and TypeScript, with a focus on modularity and maintainability. The application includes features such as product management, order processing, and user authentication.
-The project is designed to be easily extensible and customizable, allowing for future enhancements and integrations with other systems. The use of TypeScript ensures type safety and improved developer experience, while Vue.js provides a responsive and dynamic user interface. The application is built with best practices in mind, including code organization, testing, and deployment strategies.
-</p>
-
----
-
-### 🗺️Index
-
-- [Description and technologies](#desc)
-- [Installation](#installation)
-- [Wiki](#wiki)
-    > - [Build](#build)
-    > - [Unit test](#test)
-    > - [Branch rules and structure](#branch)
-    > - [Deploy](#deploy)
-    > - [Docker](#docker)
-
-<br/>
-
-<br/> 
-<h2 id="desc">💻 Built with</h2>
-
-<p>Tecnologies and libraries used in this project:</p>
-
 <div align="center">
-<h4>Libraries:</h4> 
-<table align="center" style="border-collapse: collapse; border: none;">
-  <tr>
-    <td style="padding: 10px; border: none;">
-      Vue router <b>V_2.3.2 </b>
-    </td>
-    <td style="padding: 10px; border: none;">
-      Vue carousel <b>V_0.14.0</b>
-    </td>
-   </tr>
-</table>
+  <img alt="Static Badge" src="https://img.shields.io/badge/Release-V--1.0.0-black?logoColor=%23000000&logoSize=16px&label=Release&labelColor=%230a66c2&color=%23c6cdcc"> 
+  <img src="https://img.shields.io/badge/NodeJs-V--20.0.0-black?logo=npm&logoColor=%23000000&logoSize=16px&label=NodeJS&labelColor=%2397ca00&color=%23c6cdcc" alt="shields" />
+</div>
 
 <br/>
 
-<h4>Tecnologies:</h4>
+The project is a production ready front-end web application for managing an e-commerce shop. built with **VueJs 3** in **TypeScript**, using **Pinia** for state management and **Sass** for styling. The website is also available in a [SSR version](https://github.com/ValerioGc/shop-manager-fe_ssr) made with NuxtJs.
+
+The website reads a local **config.json** at build time to manage API endpoints, feature flags, theming, and SEO defaults these settings are also stored and editable via the [Back Office Admin panel](https://github.com/ValerioGc/shop-manager-bo). At runtime, the app fetches dynamic data (products, categories, contacts, etc..) from the [Shop Manager Backend](https://github.com/ValerioGc/laravel-shop-manager) via RESTful APIs with built-in error handling.
+The app is designed to be responsive and works on all devices, including mobile phones and tablets. It also includes a **PWA** manifest for offline support and a **sitemap.xml** and dynamic **metatags** for SEO optimization.
+
+<br/>
+
+<h2 id="desc">💻 Built with</h2>
 
 <table align="center" style="border-collapse: collapse; border: none;">
   <tr>
@@ -63,9 +32,74 @@ The project is designed to be easily extensible and customizable, allowing for f
     </td>
   </tr>
 </table>
-</div>
 
-<br/> 
+<br/>
+
+## 🚀 Github Actions
+
+The project is integrated with GitHub Actions for CI/CD. The pipeline is triggered on every push to the deploy_prod/deploy_test branch. The pipeline includes the following steps:
+
+- **Version and changelog extraction**: The version and changelog are extracted from the package.json file to be used in the release process.
+- **Build**: The project is built using the build script.
+- **Test**: The project is tested using the test script.
+- **Deploy**: The compiled build is deployed to the production/test branch.
+- **Sitemap**: The sitemap is generated using the sitemap script.
+- **Github release**: The project is released on GitHub using the release script and **tagged with version numbers**.
+
+### **Script deploy**
+
+The deployment process is automated through scripts that can be used via NodeJS commands.
+
+**Start the production pipeline on GitHub Actions.**
+
+```
+npm run deploy:prod
+```
+
+<br/>
+
+**Start the test pipeline on GitHub Actions.**
+
+```
+npm run deploy:test
+```
+
+<br/>
+
+<h2 id="docker">Docker integration</h2>
+
+The project uses Docker to run the application and perform other operations without having NodeJs installed locally. The script compiles for development using a nodeJs:alpine environment via Docker.
+
+**Start the project with docker on Windows environments**
+
+```bash
+npm run docker:win
+```
+
+**Start the project with docker on Linux environments**
+
+```bash
+npm run docker:linux
+```
+
+<br/>
+
+It's also present a docker script for running the compiled files on VPS/VM on nodeJs:alpine instance
+
+**Start the project with docker in test mode**
+
+```bash
+npm run docker:deploy -- {mode}
+```
+
+##### _Avaliable Mode_:
+
+> - development
+> - test
+> - prod
+
+<br/>
+
 <br/>
 
 ## Suggested IDE Configuration
@@ -103,7 +137,7 @@ npm run lint
 
 <h2 id="build">🔨 Build and Optimization for Deploy</h2>
 
-#### 0. Dynamically generate the sitemap (sitemap.xml) using the router for PROD and TEST environments. <br/> The script is already automated in the build process but can be executed separately
+#### 0. Dynamically generate the sitemap (sitemap.xml) using the router for PROD and TEST environments. <br/>
 
 ```sh
 npm run generate-sitemap:prod // PRODUCTION
@@ -136,91 +170,3 @@ The testing process is already integrated into the build script and pipelines. H
 ```sh
 npm run test:unit
 ```
-
-<br/>
-
-<h2 id="branch">🌱 Branch rules</h2>
-The deploy branches are divided by environment. When pushing to the deploy_prod/test branch, the pipeline is triggered. The branches should only be used for CI/CD releases with Github Action and Plesk.
-[See🧨Deploy section](#deploy)
-
-- **dev**: Development and testing branch
-- **deploy_test**: Branch for release in the test environment
-- **deploy_prod**: Branch for release in the production environment
-
-<br/>
-
-<h2 id="deploy">🧨 Deploy</h2>
-
-The release is performed via pipeline on GitHub Actions.
-[See🧨Deploy section](#deploy)
-
-It executes the webhook to notify Plesk (deployment manager) of the new version of the deploy.
-The test pipeline is simplified. It builds and updates the test branch.
-
-#### **Pipeline**:
-
-- TEST_deploy_pipeline_ci
-- PROD_deploy_pipeline_ci
-
-### **Script deploy**
-
-The deployment process is automated through scripts that can be used via NodeJS commands.
-
-**Start the production pipeline on GitHub Actions.**
-
-```
-npm run deploy:prod
-```
-
-<br/>
-
-**Start the test pipeline on GitHub Actions.**
-
-```
-npm run deploy:test
-```
-
-<br/>
-
-### **CI/CD release with Github actions**
-
-- Change branch by choosing where to release `git checkout deploy_prod / checkout deploy_test` [_see branch section_](#branch)
-- Perform a pull
-- Perform a **merge** with the command `git merge dev`
-- Perform a commit and push
-
-<br/>
-
-<h2 id="docker">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" /> 
-</h2>
-
-The project uses Docker to run the application and perform other operations without having NodeJs installed locally. The script compiles for development using a nodeJs:alpine environment via Docker. 
-
-**Start the project with docker on Windows environments**
-
-```bash
-npm run docker:win
-```
-
-**Start the project with docker on Linux environments**
-
-```bash
-npm run docker:linux
-```
-
-<br/>
-
-It's also present a docker script for running the compiled files on VPS/VM on nodeJs:alpine instance
-
-**Start the project with docker in test mode**
-
-```bash
-npm run docker:deploy -- {mode}
-```
-
-##### _Avaliable Mode_:
-
-> - development
-> - test
-> - prod
